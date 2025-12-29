@@ -16,7 +16,7 @@ return (
 <About />
 <Projects />
 <Skills />
-<Resume />
+{/* <Resume /> */}
 <Contact />
 </div>
 )

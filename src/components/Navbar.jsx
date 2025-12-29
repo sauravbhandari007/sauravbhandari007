@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from "react-scroll";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -9,14 +10,20 @@ export default function Navbar() {
         <h1 className="text-xl font-bold text-cyan-400">SAURAV</h1>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-6 text-sm text-gray-300">
-          <a href="#home" className="hover:text-cyan-400">HOME</a>
-          <a href="#about" className="hover:text-cyan-400">ABOUT</a>
-          <a href="#projects" className="hover:text-cyan-400">PROJECTS</a>
-          <a href="#skills" className="hover:text-cyan-400">SKILLS</a>
-          <a href="#resume" className="hover:text-cyan-400">RESUME</a>
-          <a href="#contact" className="hover:text-cyan-400">CONTACT</a>
-        </div>
+        <div className="hidden md:flex space-x-6 text-sm text-gray-300 items-center">
+  <Link to="home" smooth={true} duration={500} className="cursor-pointer hover:text-cyan-400">HOME</Link>
+  <Link to="about" smooth={true} duration={500} className="cursor-pointer hover:text-cyan-400">ABOUT</Link>
+  <Link to="projects" smooth={true} duration={500} className="cursor-pointer hover:text-cyan-400">PROJECTS</Link>
+  <Link to="skills" smooth={true} duration={500} className="cursor-pointer hover:text-cyan-400">SKILLS</Link>
+  <Link to="contact" smooth={true} duration={500} className="cursor-pointer hover:text-cyan-400">CONTACT</Link>
+  <a
+    href="resume/Saurav_Bhandari.pdf"
+    download
+    className="ml-4 px-4 py-2 rounded-full bg-cyan-400 text-black font-semibold hover:bg-cyan-300 hover:shadow-[0_0_20px_rgba(34,211,238,0.6)] transition duration-300"
+  >
+    RESUME
+  </a>
+</div>
 
         {/* Mobile Hamburger */}
         <div className="md:hidden flex items-center">
@@ -45,8 +52,19 @@ export default function Navbar() {
           <a href="#about" className="hover:text-cyan-400" onClick={() => setIsOpen(false)}>ABOUT</a>
           <a href="#projects" className="hover:text-cyan-400" onClick={() => setIsOpen(false)}>PROJECTS</a>
           <a href="#skills" className="hover:text-cyan-400" onClick={() => setIsOpen(false)}>SKILLS</a>
-          <a href="#resume" className="hover:text-cyan-400" onClick={() => setIsOpen(false)}>RESUME</a>
           <a href="#contact" className="hover:text-cyan-400" onClick={() => setIsOpen(false)}>CONTACT</a>
+
+          {/* Mobile Resume Button */}
+          <a
+            href="/resume/Saurav_Bhandari_Resume.pdf"
+            download
+            onClick={() => setIsOpen(false)}
+            className="text-center px-4 py-2 rounded-lg
+            bg-cyan-400 text-black font-semibold
+            hover:bg-cyan-300 transition duration-300"
+          >
+            DOWNLOAD RESUME
+          </a>
         </div>
       )}
     </nav>

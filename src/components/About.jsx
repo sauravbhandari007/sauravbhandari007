@@ -6,12 +6,16 @@ export default function About() {
       <div className="max-w-6xl mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-16">
-          <p className="text-cyan-400 tracking-widest text-sm mb-2">ABOUT ME</p>
-          <h2 className="text-4xl font-bold">
-            Passionate About <span className="text-cyan-400">Creating</span>
+          <div className="flex justify-center mb-4">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-cyan-400/10 border border-cyan-400/20 backdrop-blur-sm">
+              <p className="text-cyan-400 tracking-widest text-sm md:text-base font-extrabold uppercase">ABOUT ME</p>
+            </div>
+          </div>
+          <h2 className="text-5xl md:text-6xl font-extrabold leading-tight">
+            Passionate About <span className="text-cyan-400">Crafting</span> Immersive 3D Experiences
           </h2>
           <p className="text-gray-400 mt-3 max-w-3xl mx-auto">
-            Bringing creative visions to life through 3D modeling, lighting, character design, and immersive animations. Continuously learning and experimenting to craft digital masterpieces.
+            I turn ideas into vivid 3D experiences — from stylized characters and polished models to cinematic lighting and smooth animations. I combine technical precision with visual storytelling to create work that engages and inspires.
           </p>
         </div>
 
