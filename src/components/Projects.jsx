@@ -2,6 +2,7 @@ import React from 'react'
 
 export default function Projects() {
 return (
+// hello sourav this my projects component
 <section id="projects" className="py-24">
 <div className="max-w-7xl mx-auto px-6">
 <h2 className="text-3xl font-bold mb-10 text-center">Featured <span className="text-cyan-400">Projects</span></h2>
