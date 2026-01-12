@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import saurabh from "../assets/saurabh bhandari.jpeg";
 
 export default function Hero() {
     const beforeName = "Hi, I'm ";
@@ -40,7 +41,7 @@ export default function Hero() {
             <div className="max-w-6xl w-full grid md:grid-cols-2 gap-10 px-6 items-center">
                 <div className="flex justify-center">
                     <div className="w-64 h-64 rounded-full border-4 border-cyan-400 overflow-hidden shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12" className="w-full h-full object-cover" />
+                        <img src={saurabh} className="w-full h-full object-cover" />
                     </div>
                 </div>
                 <div>
