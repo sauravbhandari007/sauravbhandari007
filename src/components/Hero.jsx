@@ -40,8 +40,8 @@ export default function Hero() {
         <section id="home" className="min-h-screen flex items-center justify-center pt-24">
             <div className="max-w-6xl w-full grid md:grid-cols-2 gap-10 px-6 items-center">
                 <div className="flex justify-center">
-                    <div className="w-64 h-64 rounded-full border-4 border-cyan-400 overflow-hidden shadow-lg">
-                        <img src={saurabh} className="w-full h-full object-cover" />
+                    <div className="w-80 h-80 md:w-96 md:h-96 rounded-full border-4 border-cyan-400 overflow-hidden shadow-lg shadow-cyan-400/20">
+                        <img src={saurabh} alt="Saurav Bhandari" className="w-full h-full object-cover" />
                     </div>
                 </div>
                 <div>
