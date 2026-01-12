@@ -30,7 +30,7 @@ const projects = [
     longDescription: "An epic sword animation sequence with smooth motion dynamics, particle effects, and cinematic camera work. Watch the blade come to life with stunning visual effects.",
     image: swordImg,
     video: swordVideo,
-    tags: ["Animation", "VFX", "Motion Graphics"],
+    tags: ["Animation",],
     type: "video"
   }
 ]
