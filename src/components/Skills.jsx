@@ -4,7 +4,7 @@ const skills = [
     { name: "Blender", logo: "blenderLogo.png" },
     { name: "Maya", logo: "mayaLogo.png" },
     { name: "Premiere Pro", logo: "premierLogo.png" },
-    { name: "Unreal", logo: "UnrealLogo.png" },
+    // { name: "Unreal", logo: "UnrealLogo.png" },
 ];
 
 export default function Skills() {
@@ -17,7 +17,8 @@ export default function Skills() {
                 </h2>
 
                 {/* Skills Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10">
+              <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-8 justify-items-center">
+
                     {skills.map((skill, index) => (
                         <div
                             key={index}
