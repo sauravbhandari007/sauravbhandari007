@@ -36,22 +36,79 @@ const projects = [
 ]
 
 export default function Projects() {
-return (
-<section id="projects" className="py-24">
-<div className="max-w-7xl mx-auto px-6">
-<h2 className="text-3xl font-bold mb-10 text-center">Featured <span className="text-cyan-400">Projects</span></h2>
-<div className="grid md:grid-cols-3 gap-6">
-{[1,2,3].map((p) => (
-<div key={p} className="bg-[#111827] rounded-xl overflow-hidden border border-white/5 hover:border-cyan-400 transition">
-<img src="https://images.unsplash.com/photo-1604079628040-94301bb21b91" />
-<div className="p-4">
-<h3 className="font-semibold">3D Project {p}</h3>
-<p className="text-sm text-gray-400">High quality 3D artwork</p>
-</div>
-</div>
-))}
-</div>
-</div>
-</section>
-)
+  const [selectedVideo, setSelectedVideo] = useState(null)
+
+  return (
+    <>
+      <section id="projects" className="py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl font-bold mb-3 text-center">Featured <span className="text-cyan-400">Projects</span></h2>
+          <p className="text-center text-gray-400 mb-12">Explore my latest 3D renders and animations</p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {projects.map((project) => (
+              <div key={project.id} className="bg-[#111827] rounded-xl overflow-hidden border border-white/5 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/10">
+                <div className="relative group">
+                  <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+                  {project.video && (
+                    <button
+                      onClick={() => setSelectedVideo(project)}
+                      className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    >
+                      <div className="bg-cyan-400 rounded-full p-4 hover:bg-cyan-300 transition">
+                        <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5h3V7h4v5h3l-5 5z" />
+                        </svg>
+                      </div>
+                    </button>
+                  )}
+                </div>
+                <div className="p-5">
+                  <h3 className="font-bold text-lg mb-2">{project.title}</h3>
+                  <p className="text-sm text-gray-400 mb-3">{project.description}</p>
+                  <p className="text-xs text-gray-500 mb-4 line-clamp-2">{project.longDescription}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, idx) => (
+                      <span key={idx} className="text-xs bg-cyan-400/10 text-cyan-400 px-2 py-1 rounded-full border border-cyan-400/30">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Video Modal */}
+      {selectedVideo && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4" onClick={() => setSelectedVideo(null)}>
+          <div className="bg-[#111827] rounded-2xl border border-cyan-400/30 max-w-2xl w-full" onClick={(e) => e.stopPropagation()}>
+            <div className="flex justify-between items-center p-6 border-b border-white/10">
+              <h3 className="text-xl font-bold text-cyan-400">{selectedVideo.title}</h3>
+              <button
+                onClick={() => setSelectedVideo(null)}
+                className="text-gray-400 hover:text-white transition text-2xl"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="p-6">
+              <video
+                width="100%"
+                height="auto"
+                controls
+                autoPlay
+                className="rounded-lg bg-black"
+              >
+                <source src={selectedVideo.video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <p className="text-gray-300 mt-4">{selectedVideo.longDescription}</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  )
 }
